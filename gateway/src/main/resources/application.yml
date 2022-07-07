@@ -1,0 +1,36 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    gateway:
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowCredentials: true
+              allowedOrigins: "http://localhost:4200"
+              allowedHeaders: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+
+      routes:
+        - id: service_watchList
+          uri: http://localhost:8084
+          predicates:
+            - Path=/WatchList/**
+          
+        - id: service_user
+          uri: http://localhost:8083
+          predicates:
+            - Path=/user-api/user/**
+          
+
+  application:
+    name: gatewayms
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "http://localhost:8081/eureka"
