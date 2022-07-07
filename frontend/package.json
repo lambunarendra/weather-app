@@ -1,0 +1,42 @@
+{
+  "name": "weather-ui",
+  "version": "1.0.0",
+  "description": "![Language](https://img.shields.io/badge/Language-Angular-red?style=flat-square) ![hacktoberfest](http://img.shields.io/badge/HacktoberFest-Accepted-brightgreen?style=flat-square) ![issues](https://img.shields.io/github/issues/thatfreakcoder/AngularWeatherApp?style=flat-square) ![contributors](https://img.shields.io/github/contributors/thatfreakcoder/AngularWeatherApp?style=flat-square)",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ng serve",
+    "build": "ng build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sysmtech1-admin@bitbucket.org/sysmtech1/weather-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/sysmtech1/weather-ui/issues"
+  },
+  "homepage": "https://bitbucket.org/sysmtech1/weather-ui#readme",
+  "dependencies": {
+    "@angular-devkit/build-angular": "^14.0.2",
+    "@angular/animations": "^14.0.2",
+    "@angular/cdk": "^14.0.2",
+    "@angular/cli": "^14.0.2",
+    "@angular/common": "^14.0.2",
+    "@angular/compiler": "^14.0.2",
+    "@angular/core": "^14.0.2",
+    "@angular/forms": "^14.0.2",
+    "@angular/localize": "^14.0.2",
+    "@angular/material": "^14.0.2",
+    "@angular/platform-browser": "^14.0.2",
+    "@angular/platform-browser-dynamic": "^14.0.2",
+    "@angular/router": "^14.0.2",
+    "@mui/icons-material": "^5.8.4",
+    "ng2-cookies": "^1.0.12"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@types/mocha": "^9.1.1"
+  }
+}

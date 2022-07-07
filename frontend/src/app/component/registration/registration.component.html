@@ -1,0 +1,88 @@
+<!-- Create HTML registration form -->
+<div class="container" style="position: relative;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      
+      <br><span> Already registered? <a href="/" href="/login">Login
+        here</a></span>
+      <h1>Registration</h1>
+
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+          <label class="control-label" for="firstName"> First Name </label>
+          <input id="firstName" class="form-control" formControlName="firstName" required autofocus="autofocus" />
+          <span class="text-danger" 
+            *ngIf="(registerFormControl.firstName.touched || submitted) && registerFormControl.firstName.errors?.required">
+            First Name is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="lastName"> Last Name </label> <input id="lastName" class="form-control"
+          formControlName="lastName" required autofocus="autofocus" />
+          <span class="text-danger" 
+            *ngIf="(registerFormControl.lastName.touched || submitted) && registerFormControl.lastName.errors?.required">
+            Last Name is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="email"> Email </label> <input id="email" class="form-control"
+          formControlName="email" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+            Email is required
+          </span>
+          <span class="text-danger"
+              *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+              Enter a valid email address
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="phone"> Phone </label> <input id="phone" class="form-control"
+          formControlName="phone" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(registerFormControl.phone.touched || submitted) && registerFormControl.phone.errors?.required">
+            Phone is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="password"> Password </label> <input id="password" class="form-control"
+            type="password" formControlName="password" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+            Password is required
+          </span>
+          <span class="text-danger"
+            *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="confirmpassword"> Confirm Password </label> <input id="confirmpassword" class="form-control"
+            type="password" formControlName="confirmPassword" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required">
+            Confirm Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
+            Passwords does not match
+        </span>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Register</button>
+          <span> Already registered? <a href="/" href="/login">Login
+              here</a></span>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>

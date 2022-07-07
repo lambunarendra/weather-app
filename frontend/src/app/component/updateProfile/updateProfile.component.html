@@ -1,0 +1,76 @@
+<!-- Create HTML update profile form -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      
+      <h1>Profile</h1>
+
+      <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()" >
+        <div class="form-group">
+          <label class="control-label" for="firstName"> First Name </label>
+          <input id="firstName" class="form-control" formControlName="firstName" required autofocus="autofocus" />
+            <!-- [(ngModel)]="user['firstname']" -->
+          <span class="text-danger" 
+            *ngIf="(updateProfileControl.firstName.touched || submitted) && updateProfileControl.firstName.errors?.required">
+            First Name is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="lastName"> Last Name </label> <input id="lastName" class="form-control"
+          formControlName="lastName" required autofocus="autofocus" />
+          <!-- [(ngModel)]="user['lastname']" -->
+          <span class="text-danger" 
+            *ngIf="(updateProfileControl.lastName.touched || submitted) && updateProfileControl.lastName.errors?.required">
+            Last Name is required
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="phone"> Phone </label> <input id="phone" class="form-control"
+          formControlName="phone" required autofocus="autofocus" />
+          <!-- [(ngModel)]="user['phone']" -->
+          <span class="text-danger"
+            *ngIf="(updateProfileControl.phone.touched || submitted) && updateProfileControl.phone.errors?.required">
+            Phone is required
+          </span>
+        </div>
+        <div class="form-group">
+          <button [disabled]="updateProfileControl.firstName.errors || updateProfileControl.lastName.errors || updateProfileControl.phone.errors" type="submit" class="btn btn-success">Update Profile</button>
+        </div>
+      </form>
+      <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" >
+        <div class="form-group">
+          <label class="control-label" for="password"> Password </label> <input id="password" class="form-control"
+            type="password" formControlName="password" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(changePasswordControl.password.touched || submitted) && changePasswordControl.password.errors?.required">
+            Password is required
+          </span>
+          <span class="text-danger"
+            *ngIf="changePasswordControl.password.touched && changePasswordControl.password.errors?.invalidPassword">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="confirmpassword"> Confirm Password </label> <input id="confirmpassword" class="form-control"
+            type="password" formControlName="confirmPassword" required autofocus="autofocus" />
+          <span class="text-danger"
+            *ngIf="(changePasswordControl.confirmPassword.touched)&& changePasswordControl.confirmPassword.errors?.required">
+            Confirm Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="changePasswordControl.confirmPassword.touched && changePasswordControl.confirmPassword.errors?.passwordMismatch">
+            Passwords doesnot match
+        </span>
+        </div>
+        <div class="form-group">
+          <button [disabled]="changePasswordControl.password.errors || changePasswordControl.confirmPassword.errors" type="submit" class="btn btn-success">Change Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
